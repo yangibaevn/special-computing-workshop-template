@@ -1,6 +1,6 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bas-kirill_special-computing-workshop-template&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=bas-kirill_special-computing-workshop-template)
 
-# Специальные вычислительный практикум (шаблон проекта)
+# Специальный вычислительный практикум (шаблон проекта)
 
 ## Автоформатирование
 1. Переходим в ```Intelij IDEA => Preferences => Code style```
