@@ -32,8 +32,12 @@
 ## Настройка checkstyle
 Откройте ```Preferences => Plugins => "Check style"```
 Установить ```CheckStyle-IDEA```
-![img.png](images/img_4.png)
+![img_4.png](images/img_4.png)
 
-## Настройка линтера и статического анализатора 
+## Настройка SonarLint
 Откройте и установите ```Preferences => Plugins => "SonarLint"```
 
+Будем использовать стандартные настройки без выгрузки конфигураций в Cloud
+
+Выставите настройки как на картинке:
+![img_5.png](images/img_5.png)
