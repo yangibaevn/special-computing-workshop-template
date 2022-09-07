@@ -1,11 +1,11 @@
 # Специальные вычислительный практикум (шаблон проекта)
 
 ## Автоформатирование
-1. Переходим в ```Intelij IDEA -> Preferences -> Code style```:
-![img.png](images/img.png)
-2. Указываем файл ```spbu_apcyb.xml```
-![img_2.png](images/img_2.png)
+1. Переходим в ```Intelij IDEA => Preferences => Code style```
+2. Импортируем из корня проекта ```codestyle.xml```
+![img.png](images/img_2.png)
 3. Также важно не забывать запускать автоформатирование. Его можно настроить на определенные клавиши (например, option + command + L):
+![img_6.png](images/img_6.jpeg)
 4. Настраиваем импорты:
    - Переходим в ```File => Settings... => Editor => Code Style => Java => Imports```
    - Не используем импорты с *:
