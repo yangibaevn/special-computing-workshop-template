@@ -28,3 +28,12 @@
      import static all other imports
    ```
 ![img_3.png](images/img_3.png)
+
+## Настройка checkstyle
+Откройте ```Preferences => Plugins => "Check style"```
+Установить ```CheckStyle-IDEA```
+![img.png](images/img_4.png)
+
+## Настройка линтера и статического анализатора 
+Откройте и установите ```Preferences => Plugins => "SonarLint"```
+
