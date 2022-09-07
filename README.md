@@ -15,3 +15,10 @@
 
 ## Настройка SonarLint
 Установите ```Preferences => Plugins => "SonarLint"```
+
+## Запуск JoCoCo
+При запуске проверьте, что в конфигурации запуска указаны следующие настройки в ```code coverage```:
+![img.png](images/img_4.png)
+
+Ожидаемый результат:
+![img.png](images/img_5.png)
