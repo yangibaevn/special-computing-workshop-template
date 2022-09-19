@@ -1,4 +1,5 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bas-kirill_special-computing-workshop-template&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=bas-kirill_special-computing-workshop-template)
+[![License](https://custom-icon-badges.demolab.com/github/license/denvercoder1/custom-icon-badges?logo=law)](https://opensource.org/licenses/MIT)
 
 # Специальный вычислительный практикум (шаблон проекта)
 
