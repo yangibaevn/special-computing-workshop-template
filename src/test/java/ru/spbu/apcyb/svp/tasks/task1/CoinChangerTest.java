@@ -5,7 +5,7 @@ import java.io.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CoinChangerTest {
+class CoinChangerTest {
     private final InputStream sysIn = System.in;
     private final PrintStream sysOut = System.out;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();

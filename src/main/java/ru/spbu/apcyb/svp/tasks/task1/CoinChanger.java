@@ -49,9 +49,9 @@ public class CoinChanger {
 
     // Метод для отображения комбинаций
     private void displayCombinations(List<List<Integer>> combinations) {
-        System.out.println("\nCombinations: ");
+        LOGGER.log(Level.INFO, "\nCombinations: ");
         for (List<Integer> combination : combinations) {
-            System.out.println(combination);
+            LOGGER.log(Level.INFO, combination.toString());
         }
     }
 
