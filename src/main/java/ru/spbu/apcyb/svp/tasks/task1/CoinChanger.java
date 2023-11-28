@@ -29,12 +29,12 @@ public class CoinChanger {
             if (sumAsString.isBlank()) throw new RuntimeException("Input cannot be empty. Please enter a valid positive integer");
 
             int sum = Integer.parseInt(sumAsString);
-            if (sum < 0) throw new RuntimeException("Amount for change should be a positive integer.");
+            if (sum <= 0) throw new RuntimeException("Amount for change should be a positive integer.");
 
             return sum;
 
         } catch (NumberFormatException e) {
-            throw new RuntimeException("Invalid input format or value exceeds the limits of integer type. Please enter a valid positive integer.");
+            throw new RuntimeException("Invalid input format or value exceeds the limits of integer type. Please enter a valid positive integer for sum.");
         }
     }
 
@@ -58,18 +58,20 @@ public class CoinChanger {
 
                 coins[i] = coinValue;
             } catch (NumberFormatException e) {
-                throw new RuntimeException("Change options should be valid positive integers.");
+                throw new RuntimeException("Invalid input format or value exceeds the limits of integer type. Please enter a valid positive integers for change");
             }
         }
 
         return coins;
     }
 
-    public void countChangeOptions() {
+    public int countChangeOptions() {
         List<int[]> changeOptions = getChangeOptions(sum);
         Set<List<Integer>> uniqueOptions = convertOptionsToSet(changeOptions);
 
         displayChangeCombinations(uniqueOptions);
+
+        return uniqueOptions.size();
     }
 
     private Set<List<Integer>> convertOptionsToSet(List<int[]> options) {
