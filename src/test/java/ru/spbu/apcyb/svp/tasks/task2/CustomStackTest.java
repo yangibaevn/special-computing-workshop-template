@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.EmptyStackException;
 
-public class CustomStackTest {
+class CustomStackTest {
     private CustomStack<Integer> customStack;
 
     @BeforeEach
