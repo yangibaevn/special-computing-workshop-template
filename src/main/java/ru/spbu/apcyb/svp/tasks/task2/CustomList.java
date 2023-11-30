@@ -25,9 +25,16 @@ public class CustomList<T> implements List<T> {
     private Object[] increaseCapacity() {
         if (size >= Integer.MAX_VALUE / 2) {
             return new Object[Integer.MAX_VALUE];
+        } else {
+            int newCapacity = size * 2;
+            if (newCapacity < 0) {
+                return new Object[Integer.MAX_VALUE];
+            } else {
+                return new Object[newCapacity];
+            }
         }
-        return new Object[size * 2];
     }
+
 
     /* Переопределенные методы */
     @Override
@@ -56,7 +63,7 @@ public class CustomList<T> implements List<T> {
     @Override
     public boolean add(T element) {
         if (size == array.length) {
-            array = Arrays.copyOf(array, size * 2);
+            array = increaseCapacity();
         }
         array[size++] = element;
         return true;
@@ -69,7 +76,7 @@ public class CustomList<T> implements List<T> {
             throw new IndexOutOfBoundsException(IOOB);
         }
         if (array.length == size) {
-            array = Arrays.copyOf(array, size * 2);
+            array = increaseCapacity();
         }
         System.arraycopy(array, index, array, index + 1, size - index);
         array[index] = element;
@@ -179,7 +186,7 @@ public class CustomList<T> implements List<T> {
     @Override
     public int hashCode() {
         int result = Objects.hash(size);
-        result = 31 * result + Arrays.hashCode(Arrays.copyOf(array, size));
+        result = 31 * result + Arrays.hashCode(increaseCapacity());
         return result;
     }
 

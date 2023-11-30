@@ -2,11 +2,11 @@ package ru.spbu.apcyb.svp.tasks.task2;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class CustomListTest {
 
@@ -28,6 +28,8 @@ class CustomListTest {
     @Test
     void testGet() {
         assertEquals(2, customList.get(1));
+        assertThrows(IndexOutOfBoundsException.class, () -> customList.get(-1));
+        assertThrows(IndexOutOfBoundsException.class, () -> customList.get(customList.size()));
     }
 
     @Test

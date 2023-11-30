@@ -5,28 +5,24 @@ import java.util.Stack;
 
 public class CustomStack<T> extends Stack<T> {
 
-    private final transient CustomList<T> value;
-    private int size;
+    private final CustomList<T> value;
 
     public CustomStack() {
         this.value = new CustomList<>();
-        this.size = 0;
     }
 
     public CustomStack(Object[] list) {
         this.value = new CustomList<>(list);
-        this.size = value.size();
     }
 
     @Override
     public synchronized int size() {
-        return size;
+        return value.size();
     }
 
     @Override
     public synchronized T push(T elem) {
         value.add(0, elem);
-        ++size;
         return elem;
     }
 
@@ -35,13 +31,12 @@ public class CustomStack<T> extends Stack<T> {
         if (isEmpty()) {
             throw new EmptyStackException();
         }
-        --size;
         return value.remove(0);
     }
 
     @Override
     public synchronized boolean isEmpty() {
-        return size == 0;
+        return value.isEmpty();
     }
 
     @Override
