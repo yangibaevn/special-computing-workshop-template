@@ -1,10 +1,6 @@
 package ru.spbu.apcyb.svp.tasks.task1;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,10 +22,14 @@ public class CoinChanger {
     private static int getAmountForChangeFromInput(Scanner input) {
         try {
             String sumAsString = input.nextLine();
-            if (sumAsString.isBlank()) throw new RuntimeException("Input cannot be empty. Please enter a valid positive integer");
+            if (sumAsString.isBlank()) {
+                throw new RuntimeException("Input cannot be empty. Please enter a valid positive integer");
+            }
 
             int sum = Integer.parseInt(sumAsString);
-            if (sum <= 0) throw new RuntimeException("Amount for change should be a positive integer.");
+            if (sum <= 0) {
+                throw new RuntimeException("Amount for change should be a positive integer.");
+            }
 
             return sum;
 
@@ -80,15 +80,16 @@ public class CoinChanger {
         for (int[] option : options) {
             List<Integer> optionAsList = new ArrayList<>();
             for (int i = 0; i < option.length; i++) {
-                for (int j = 0; j < option[i]; j++) {
-                    optionAsList.add(coins[i]);
-                }
+                Integer[] coinsArray = new Integer[option[i]];
+                Arrays.fill(coinsArray, coins[i]);
+                optionAsList.addAll(Arrays.asList(coinsArray));
             }
             result.add(optionAsList);
         }
 
         return result;
     }
+
 
     private void displayChangeCombinations(Set<List<Integer>> options) {
         LOGGER.log(Level.INFO, "Total amount of combinations: {0}\nCombinations:", options.size());
