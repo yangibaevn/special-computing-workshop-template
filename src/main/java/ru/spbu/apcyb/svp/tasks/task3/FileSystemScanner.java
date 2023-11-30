@@ -25,11 +25,18 @@ public class FileSystemScanner {
         Path outputPath = Paths.get(outputFilePath);
 
         try {
+            if (!Files.exists(sourceDirectory) || !Files.isDirectory(sourceDirectory)) {
+                throw new IllegalArgumentException("Source directory does not exist or is not a directory");
+            }
+            if (Files.exists(outputPath) && Files.isDirectory(outputPath)) {
+                throw new FileAlreadyExistsException("Output path points to an existing directory");
+            }
+
             List<String> fileList = listFiles(sourceDirectory);
             writeToFile(outputPath, fileList);
             System.out.println("File list successfully written to " + outputFilePath);
-        } catch (IOException e) {
-            throw new InvalidPathException(sourceDirectoryPath, "This directory does not exist");
+        } catch (IllegalArgumentException | IOException e) {
+            System.err.println("Error: " + e.getMessage());
         }
     }
 
