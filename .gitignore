@@ -24,3 +24,9 @@ hs_err_pid*
 replay_pid*
 
 .idea/*
+
+.DS_Store
+
+target/
+
+test/resources/task3
