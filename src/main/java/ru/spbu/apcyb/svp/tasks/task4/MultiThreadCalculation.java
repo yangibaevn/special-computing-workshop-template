@@ -37,7 +37,7 @@ public class MultiThreadCalculation {
             Instant endSingle = Instant.now();
             writeResultInFile(singleOutputPath, resultSingle);
             long singleThreadTime = Duration.between(startSingle, endSingle).toMillis();
-            System.out.printf("Time spent on calculation with single thread: %d ms%n", singleThreadTime);
+            logger.log(Level.INFO,"Time spent on calculation with single thread: " + singleThreadTime + " ms");
 
             // Многопоточный режим
             Instant startMulti = Instant.now();
@@ -45,11 +45,12 @@ public class MultiThreadCalculation {
             Instant endMulti = Instant.now();
             writeResultInFile(multiOutputPath, resultMulti);
             long multiThreadTime = Duration.between(startMulti, endMulti).toMillis();
-            System.out.printf("Time spent on calculation with multiple threads: %d ms%n", multiThreadTime);
+            logger.log(Level.INFO,"Time spent on calculation with multiple threads: " + multiThreadTime + " ms");
 
             // Сравнение производительности
             double speedup = (double) singleThreadTime / multiThreadTime;
-            System.out.printf("Multi-threading speedup: %.2f times%n", speedup);
+
+            logger.log(Level.INFO,"Multi-threading speedup: " + String.format("%.2f", speedup) + " times");
 
         } catch (InvalidPathException e) {
             throw new IllegalArgumentException("Invalid path: " + e.getMessage());
@@ -57,7 +58,9 @@ public class MultiThreadCalculation {
         } catch (IOException e) {
             logger.log(Level.SEVERE, "IO Exception occurred", e);
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            logger.log(Level.WARNING, "Interrupted!", e);
+
+            Thread.currentThread().interrupt();
         }
     }
 
